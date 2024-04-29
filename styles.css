@@ -118,7 +118,7 @@ hr {
 .cover-heading {
 	position: relative;
 	bottom: 38%;
-	left: 19%;
+	text-align: center;
 	font-size: 50px;
 	 background: -webkit-linear-gradient(#F7D182, #A16A2A);
   -webkit-background-clip: text;
