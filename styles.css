@@ -8,11 +8,11 @@ body {
 }
 
 .wedding-card {
-	margin-top: 20%;
+	margin-top: 10%;
 	position: relative;
 	perspective: 1000px;
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 700px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -32,7 +32,7 @@ h1 {
 .container {
 	background: url('res_bluecoverT.jpg');
 	object-fit: cover;
-	width: 500px;
+	width: 400px;
 	height: 700px;
 	position: absolute;
 	margin-left: auto;
@@ -62,7 +62,7 @@ hr {
 
 .invite {
 	position: relative;
-	top: -50px;
+	top: -68px;
 }
 
 .border-1 {
@@ -94,7 +94,7 @@ hr {
 .cover {
 	background: url('res_bluecoverT.jpg');
 	object-fit: cover;
-	width: 500px;
+	width: 400px;
 	height: 700px;
 	transform-origin: left center;
   	transition: 2s;
@@ -109,16 +109,16 @@ hr {
 }
 
 .cover-style {
-	width: 500px;
+	width: 400px;
 	position: relative;
 	margin-left: auto;
-	margin-top: 20%;
+	margin-top: 40%;
 }
 
 .cover-heading {
 	position: relative;
-	bottom: 310px;
-	left: 120px;
+	bottom: 38%;
+	left: 19%;
 	font-size: 50px;
 	 background: -webkit-linear-gradient(#F7D182, #A16A2A);
   -webkit-background-clip: text;
