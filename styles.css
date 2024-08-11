@@ -1,126 +1,51 @@
-@font-face {
-  font-family: 'La Flibustisre';
-  src: url(https://res.cloudinary.com/areeba/raw/upload/v1650492268/La_Flibusti%C3%A8re.ttf);
-}
-
 body {
-	overflow: hidden;	
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.wedding-card {
-	margin-top: 10%;
-	position: relative;
-	perspective: 1000px;
-	width: 400px;
-	height: 700px;
-	margin-left: auto;
-	margin-right: auto;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
 }
 
-p {
-	color: #BE8D49;
-	font-family: 'Lobster', cursive;
-	text-align: center;
-	font-size: 14px;
+header h1 {
+    margin: 0;
 }
 
-h1 {
-	font-family: 'La Flibustisre';
-	color: #BE8D49;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-.container {
-	background: url('res_bluecoverT.jpg');
-	object-fit: cover;
-	width: 400px;
-	height: 700px;
-	position: absolute;
-	margin-left: auto;
-	border-left: 1px solid rgb(181,119,41);
-	transform-origin: left center;
-  	transition: 2s;   
-	margin-right: auto;
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
 }
 
-.invite h1 {
-	text-align: center;	
-	font-size: 45px;
-	margin-top: 0px;
-	margin-bottom: 0;
-	 background: -webkit-linear-gradient(#F7D182, #A16A2A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
 }
 
-hr {
-	margin-top: 20px;
-	margin-bottom: -10px; 
-	width: 200px;
-	border-top: 0.5px solid rgb(181,119,41) !important;
-	border: none;
+section {
+    padding: 2rem;
+    text-align: center;
 }
 
-.invite {
-	position: relative;
-	top: -68px;
+section h2 {
+    color: #333;
 }
 
-.border-1 {
-	width: 200px;
-}
-
-.border-2 {
-	width: 200px;
-	transform: scaleX(-1);
-	float: right;
-}
-
-.border-3 {
-	width: 200px;
-	transform: scaleY(-1);
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-}
-
-.border-4 {
-	width: 200px;
-	transform: scaleY(-1) scaleX(-1);
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-}
-
-.cover {
-	background: url('res_bluecoverT.jpg');
-	object-fit: cover;
-	width: 400px;
-	height: 700px;
-	transform-origin: left center;
-  	transition: 2s;
-  	z-index:1;
-	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.cover:hover {
-	 transform: rotateY(-100deg);
-}
-
-.cover-style {
-	width: 400px;
-	position: relative;
-	margin-left: auto;
-	margin-top: 40%;
-}
-
-.cover-heading {
-	position: relative;
-	bottom: 38%;
-	text-align: center;
-	font-size: 50px;
-	 background: -webkit-linear-gradient(#F7D182, #A16A2A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
