@@ -1,0 +1,509 @@
+:root {
+	--result: "Tie Game!";
+	--game-over-turn: "GAME OVER!";
+	--x: "X";
+	--o: "O";
+	--x-color: #f18f01;
+	--o-color: #048ba8;
+	--cell-color: #2f2d2e;
+	--symbol-color: #efefef;
+	--text-color: #2e4057;
+	--button-color: #99c24d;
+	--button-hover-color: #81a739;
+	--button-active-color: #619729;
+	--turn: "X's turn";
+	--turn-color: var(--x-color);
+	font-family: "Arial", sans-serif;
+}
+html,
+body {
+	height: 100%;
+	margin: 0px;
+	background-color: #860ebe;
+}
+
+div.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	height: 80%;
+    margin-left: 10%;
+	max-height: 100vh;
+}
+
+h1 {
+	text-align: center;
+	color: #eee;
+	flex-grow: 0;
+}
+
+h3 {
+	text-align: center;
+	color: #ae7474;
+	flex-grow: 0;
+}
+
+.board-container {
+	flex-grow: 1;
+	width: 80%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.board {
+	position: absolute;
+	width: 80%;
+	max-height: 100%;
+	aspect-ratio: 1/1;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: auto auto auto;
+}
+input {
+	display: none;
+	grid-column: 0;
+	grid-row: 0;
+}
+label {
+	cursor: pointer;
+	position: relative;
+	color: #555;
+}
+
+label:hover::after {
+	opacity: 0.5;
+}
+
+label.x:hover::after {
+	content: var(--x);
+	color: var(--x-color);
+}
+label.o:hover::after {
+	content: var(--o);
+	color: var(--o-color);
+}
+
+label.o {
+	visibility: hidden;
+	position: absolute;
+}
+
+.cell {
+	background-color: var(--cell-color);
+	border-radius: 0.25em;
+	font-size: 10vmin;
+	font-weight: bold;
+	position: relative;
+}
+.cell::after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.cell {
+	visibility: hidden;
+	position: absolute;
+	color: var(--symbol-color);
+	transition: transform 0.5s;
+}
+
+div.cell::after {
+	content: var(--cellValue);
+}
+
+span.row {
+	visibility: hidden;
+	position: absolute;
+}
+
+#x1:checked ~ label:nth-of-type(1),
+#o1:checked ~ label:nth-of-type(2),
+#x2:checked ~ label:nth-of-type(3),
+#o2:checked ~ label:nth-of-type(4),
+#x3:checked ~ label:nth-of-type(5),
+#o3:checked ~ label:nth-of-type(6),
+#x4:checked ~ label:nth-of-type(7),
+#o4:checked ~ label:nth-of-type(8),
+#x5:checked ~ label:nth-of-type(9),
+#o5:checked ~ label:nth-of-type(10),
+#x6:checked ~ label:nth-of-type(11),
+#o6:checked ~ label:nth-of-type(12),
+#x7:checked ~ label:nth-of-type(13),
+#o7:checked ~ label:nth-of-type(14),
+#x8:checked ~ label:nth-of-type(15),
+#o8:checked ~ label:nth-of-type(16),
+#x9:checked ~ label:nth-of-type(17),
+#o9:checked ~ label:nth-of-type(18),
+#x1:checked ~ label:nth-of-type(2),
+#o1:checked ~ label:nth-of-type(1),
+#x2:checked ~ label:nth-of-type(4),
+#o2:checked ~ label:nth-of-type(3),
+#x3:checked ~ label:nth-of-type(6),
+#o3:checked ~ label:nth-of-type(5),
+#x4:checked ~ label:nth-of-type(8),
+#o4:checked ~ label:nth-of-type(7),
+#x5:checked ~ label:nth-of-type(10),
+#o5:checked ~ label:nth-of-type(9),
+#x6:checked ~ label:nth-of-type(12),
+#o6:checked ~ label:nth-of-type(11),
+#x7:checked ~ label:nth-of-type(14),
+#o7:checked ~ label:nth-of-type(13),
+#x8:checked ~ label:nth-of-type(16),
+#o8:checked ~ label:nth-of-type(15),
+#x9:checked ~ label:nth-of-type(18),
+#o9:checked ~ label:nth-of-type(17) {
+	visibility: hidden;
+	position: absolute;
+}
+input:nth-of-type(1):checked ~ div:nth-of-type(1),
+input:nth-of-type(3):checked ~ div:nth-of-type(2),
+input:nth-of-type(5):checked ~ div:nth-of-type(3),
+input:nth-of-type(7):checked ~ div:nth-of-type(4),
+input:nth-of-type(9):checked ~ div:nth-of-type(5),
+input:nth-of-type(11):checked ~ div:nth-of-type(6),
+input:nth-of-type(13):checked ~ div:nth-of-type(7),
+input:nth-of-type(15):checked ~ div:nth-of-type(8),
+input:nth-of-type(17):checked ~ div:nth-of-type(9) {
+	visibility: visible;
+	transform: rotate3d(0, 1, 0, 360deg);
+	position: relative;
+	background-color: var(--x-color);
+	--cellValue: var(--x);
+}
+
+input:nth-of-type(2):checked ~ div:nth-of-type(1),
+input:nth-of-type(4):checked ~ div:nth-of-type(2),
+input:nth-of-type(6):checked ~ div:nth-of-type(3),
+input:nth-of-type(8):checked ~ div:nth-of-type(4),
+input:nth-of-type(10):checked ~ div:nth-of-type(5),
+input:nth-of-type(12):checked ~ div:nth-of-type(6),
+input:nth-of-type(14):checked ~ div:nth-of-type(7),
+input:nth-of-type(16):checked ~ div:nth-of-type(8),
+input:nth-of-type(18):checked ~ div:nth-of-type(9) {
+	visibility: visible;
+	transform: rotate3d(1, 0, 0, 360deg);
+	position: relative;
+	background-color: var(--o-color);
+	--cellValue: var(--o);
+}
+
+/* O's Turn */
+input:checked ~ .turn,
+input:checked ~ input:checked ~ input:checked ~ .turn,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ .turn,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ .turn {
+	--turn: "O's turn";
+	--turn-color: var(--o-color);
+}
+
+input:checked ~ label.o,
+input:checked ~ input:checked ~ input:checked ~ label.o,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.o,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.o {
+	visibility: visible;
+	position: relative;
+}
+
+input:checked ~ label.x,
+input:checked ~ input:checked ~ input:checked ~ label.x,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.x,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.x {
+	visibility: hidden;
+	position: absolute;
+}
+
+/* X's Turn */
+input:checked ~ input:checked ~ .turn,
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ .turn,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ .turn,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ .turn {
+	--turn: "X's turn";
+	--turn-color: var(--x-color);
+}
+input:checked ~ input:checked ~ label.o,
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ label.o,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.o,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.o {
+	visibility: hidden;
+	position: absolute;
+}
+input:checked ~ input:checked ~ label.x,
+input:checked ~ input:checked ~ input:checked ~ input:checked ~ label.x,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.x,
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ label.x {
+	visibility: visible;
+	position: relative;
+}
+
+/* X Wins */
+input.row.x:checked
+	+ input
+	+ input.x:checked
+	+ input
+	+ input.x:checked
+	~ div.result,
+input.x:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.x:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.x:checked
+	~ div.result,
+#x1:checked ~ #x5:checked ~ #x9:checked ~ div.result,
+#x3:checked ~ #x5:checked ~ #x7:checked ~ div.result {
+	--result: "X WINS!";
+	--win-color: var(--x-color);
+	display: flex;
+}
+/* O Wins */
+input.row.o:checked
+	+ input
+	+ input.o:checked
+	+ input
+	+ input.o:checked
+	~ div.result,
+input.o:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.o:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.o:checked
+	~ div.result,
+#o1:checked ~ #o5:checked ~ #o9:checked ~ div.result,
+#o3:checked ~ #o5:checked ~ #o7:checked ~ div.result {
+	--result: "O WINS!";
+	--win-color: var(--o-color);
+	display: flex;
+}
+/* Game Over with winner */
+input.row.x:checked + input + input.x:checked + input + input.x:checked ~ .turn,
+input.x:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.x:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.x:checked
+	~ .turn,
+#x1:checked ~ #x5:checked ~ #x9:checked ~ .turn,
+#x3:checked ~ #x5:checked ~ #x7:checked ~ .turn,
+input.row.o:checked + input + input.o:checked + input + input.o:checked ~ .turn,
+input.o:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.o:checked
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input
+	+ input.o:checked
+	~ .turn,
+#o1:checked ~ #o5:checked ~ #o9:checked ~ .turn,
+#o3:checked ~ #o5:checked ~ #o7:checked ~ .turn {
+	--turn: var(--game-over-turn) !important;
+	--turn-color: var(--button-color) !important;
+}
+
+/* Tie Game */
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ div.result {
+	display: flex;
+}
+input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ input:checked
+	~ .turn {
+	--turn: var(--game-over-turn);
+	--turn-color: var(--button-color);
+}
+
+div.result {
+	display: none;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: var(--win-color);
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: 200%;
+	text-align: center;
+	text-shadow: -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff,
+		2px -2px 2px #fff;
+	--margin: -10px;
+	--padding: 10px;
+	border-radius: 0.5em;
+}
+div.result span::after {
+	content: var(--result);
+}
+button {
+	cursor: pointer;
+	border: none;
+	padding: 1em;
+	font-weight: bold;
+	border-radius: 0.5em;
+
+	margin-top: 1em;
+	background-color: var(--button-color);
+	color: var(--text-color);
+
+	font-size: 0.75em;
+}
+button:hover {
+	background-color: var(--button-hover-color);
+	color: #fff;
+}
+button:hover:active {
+	background-color: var(--button-active-color);
+}
+
+div.turn {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 4em;
+	background-color: var(--cell-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div.turn::after {
+	font-weight: bold;
+	content: var(--turn);
+	color: var(--turn-color);
+}
+div.dummy-turn {
+	min-height: 5em;
+	max-height: 5em;
+	flex-grow: 0;
+}
