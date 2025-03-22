@@ -1,100 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Welcome!</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Testing gihub pages. My work in progress!</h1>
-        <div class="container">
-            <h3>Meanwhile play Tic-Tac-Toe created by <a href="https://codepen.io/AJSpetner/pen/zYdmJRL">AJSpenter</a></h3>
-            <div class="board-container">
-                <form class="board">
-                    <input type="checkbox" class="x row" id="x1">
-                    <input type="checkbox" class="o row" id="o1">
-                    <input type="checkbox" class="x" id="x2">
-                    <input type="checkbox" class="o" id="o2">
-                    <input type="checkbox" class="x" id="x3">
-                    <input type="checkbox" class="o" id="o3">
-                    <input type="checkbox" class="x row" id="x4">
-                    <input type="checkbox" class="o row" id="o4">
-                    <input type="checkbox" class="x" id="x5">
-                    <input type="checkbox" class="o" id="o5">
-                    <input type="checkbox" class="x" id="x6">
-                    <input type="checkbox" class="o" id="o6">
-                    <input type="checkbox" class="x row" id="x7">
-                    <input type="checkbox" class="o row" id="o7">
-                    <input type="checkbox" class="x" id="x8">
-                    <input type="checkbox" class="o" id="o8">
-                    <input type="checkbox" class="x" id="x9">
-                    <input type="checkbox" class="o" id="o9">
-                    <label for="x1" class="cell x">
-                    </label>
-                    <label for="o1" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x2" class="cell x">
-                    </label>
-                    <label for="o2" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x3" class="cell x">
-                    </label>
-                    <label for="o3" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x4" class="cell x">
-                    </label>
-                    <label for="o4" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x5" class="cell x">
-                    </label>
-                    <label for="o5" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x6" class="cell x">
-                    </label>
-                    <label for="o6" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x7" class="cell x">
-                    </label>
-                    <label for="o7" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x8" class="cell x">
-                    </label>
-                    <label for="o8" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-                    <label for="x9" class="cell x">
-                    </label>
-                    <label for="o9" class="cell o">
-                    </label>
-                    <div class="cell">
-                    </div>
-        
-                    <div class="result">
-                        <div>
-                            <span></span>
-                            <br>
-                            <button type="reset">New Game</button>
-                        </div>
-                    </div>
-                    <div class="turn"></div>
-                </form>
-            </div>
-        
-            <div class="dummy-turn"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Maze Puzzle Game</title>
+    <link rel="stylesheet" href="ai-2d-maze-style.css">
+</head>
+<body>
+    <h1>2D Maze Puzzle Game</h1>
+    
+    <div class="game-container">
+        <div class="info">
+            <div id="moves">Moves: 0</div>
+            <div id="timer">Time: 0s</div>
         </div>
-    </body>
+        
+        <div class="controls">
+            <button id="start-btn">New Game</button>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        
+        <canvas id="maze-container"></canvas>
+    </div>
+    
+    <div class="instructions">
+        <h3>How to Play:</h3>
+        <p>Use the arrow keys or WASD to move the player (red square) through the maze to reach the exit (green square).</p>
+        <p>Choose difficulty level and click "New Game" to start a new maze.</p>
+    </div>
+
+    <script src="ai-2d-maze-script.js"></script>
+</body>
 </html>
